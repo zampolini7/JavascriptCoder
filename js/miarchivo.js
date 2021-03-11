@@ -4,7 +4,7 @@ let nombrePersona = "";
 
 
 
-//Función saludar
+//PETICIÓN POR PROMPT DE NOMBRE
 function saludo (){
     nombrePersona = prompt("¿Nos contarías tu nombre?");
     alert ("¡Hola " + nombrePersona + "! Bienvenido a PANDA, que disfrutes tu recorrido :)" );
@@ -15,9 +15,9 @@ saludo();
 
 
 
+// PETICIONES POR PROMPT PARA CREAR OBJETO
 
-
-// let entradaDeUsuario = prompt(nombrePersona + " para crear un objeto ingresa: crear")
+let entradaDeUsuario = prompt(nombrePersona + " para crear un objeto ingresa: crear")
 //CREADOR DE OBJETOS
 
 class productos1 {
@@ -29,41 +29,47 @@ class productos1 {
     }
 
 
-    // sumarIva(){
-    //     this.precio= this.precio*1.21;
-    //     alert(nombrePersona + "El precio de tu producto es de: ")
+    sumarIva(){
+        this.precio= this.precio*1.21;
+        alert(nombrePersona + "El precio de tu producto es de: ")
 
 
-    // }
+    }
 
 }
 
 
 
-// if( entradaDeUsuario == "crear") {
-//     listadoDeProductos.push(new productos1 ("DeliBox",2600))
-//     console.log (listadoDeProductos);
+if( entradaDeUsuario == "crear") {
+    listadoDeProductos.push(new productos1 ("DeliBox",2600))
+    console.log (listadoDeProductos);
 
 
    
     
-// }
+}
+
+// CREACIÓN DE ARRAY
 
 const listadoDeProductos = [];
 
-listadoDeProductos.push = (new productos1("ParriBox", 2500));
-listadoDeProductos.push = (new productos1('teaTime', 2600));
-listadoDeProductos.push = (new productos1('movieNigth', 2400));
-listadoDeProductos.push = (new productos1('parriBox', 3000));
-listadoDeProductos.push = (new productos1('dealiMets', 2800));
-listadoDeProductos.push = (new productos1('wakeUp', 3000));
-listadoDeProductos.push = (new productos1('beerBox', 3200));
-listadoDeProductos.push = (new productos1('aperolBox', 3200));
-listadoDeProductos.push = (new productos1('ginBox', 3500));
-listadoDeProductos.push = (new productos1('memoriesBox', 3200));
-listadoDeProductos.push = (new productos1('provoBox', 2900));
-listadoDeProductos.push = (new productos1('wineBox', 2500));
-console.log(listadoDeProductos);
+// METIENDO LOS OBJETOS CREADOS AL ARRAY
+
+listadoDeProductos.push (new productos1("ParriBox", 2500));
+listadoDeProductos.push (new productos1('teaTime', 2600));
+listadoDeProductos.push (new productos1('movieNigth', 2400));
+listadoDeProductos.push (new productos1('parriBox', 3000));
+listadoDeProductos.push (new productos1('dealiMets', 2800));
+listadoDeProductos.push (new productos1('wakeUp', 3000));
+listadoDeProductos.push (new productos1('beerBox', 3200));
+listadoDeProductos.push (new productos1('aperolBox', 3200));
+listadoDeProductos.push (new productos1('ginBox', 3500));
+listadoDeProductos.push (new productos1('memoriesBox', 3200));
+listadoDeProductos.push (new productos1('provoBox', 2900));
+listadoDeProductos.push (new productos1('wineBox', 2500));
+
+
+// FOR PARA RECORRER LOS OBJETOS CREADOS
 
 for (let i of listadoDeProductos){
     console.log(i);
