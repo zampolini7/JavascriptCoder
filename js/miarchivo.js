@@ -95,54 +95,30 @@ console.log(listadosDeProductos1)
 
 
 
-// FUNCIÓN PARA SUMAR Y RESTAR COSAS DEL ARRAY
+
+// --- AGREGAR ELEMENTO AL DOM ENTREGA 8 ---
+
+let crearElementoById = document.getElementById("crearId1");
+let parrafo = document.createElement ("div")
+parrafo.innerHTML = "<h1>Productos a la venta</h1>";
+    for (const elemento of listadosDeProductos1){
+        parrafo.innerHTML +=  `<div  class="card-deck"> 
+
+
+                                    <div class="card  col-6 d-flex justify-content-center">
+                                        <img class="card-img-top" src="images1/parriboxvino1.jpeg" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5  class="card-title"> ${elemento.nombre}</h5>
+
+                                            <a href="" class="btn btn-primary d-flex justify-content-center">
+                                                Agregar al carrito x ${elemento.precio}
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>`
+        };
+        
+        
 
 crearElementoById.appendChild(parrafo);
-
-// alert ("Bievenidos a la calculadora ágil y sencilla");
-// let Valor1 = parseInt(prompt("Ingrese un número"));
-// let Valor2 = parseInt(prompt("Ingrese un segundo número"));
-// let Operacion = prompt ("Ingrese la operacion deseada: suma, resta, multiplicación o división");
-
-// FUNCIÓN PARA SUMAR Y RESTAR COSAS DEL ARRAY
-
-//Me puede servir este if para operar sobre el array, lo veremos más adelante
-// function operaciones (){
-
-// alert ("Bievenidos a la calculadora ágil y sencilla");
-// let Valor1 = parseInt(prompt("Ingrese un número"));
-// let Valor2 = parseInt(prompt("Ingrese un segundo número"));
-// let Operacion = prompt ("Ingrese la operacion deseada: suma, resta, multiplicación o división");
-
-
-//Me puede servir este if para operar sobre el array, lo veremos más adelante
-// function operaciones (){
-
-
-//     if (Operacion == "suma") {
-//         let Valor3 = Valor1 + Valor2;
-//         console.log ("La suma de los dos números es de = " + Valor3);
-//         alert ("La suma de los dos números es de = " + Valor3);
-    
-//     }
-    
-//     else if (Operacion == "resta") {
-//         let Valor3 = Valor1 - Valor2;
-//         console.log ("La resta de los dos números es de = " + Valor3);
-//         alert ("La resta de los dos números es de = " + Valor3);
-//     }
-    
-//     else if (Operacion == "multiplicación" || Operacion == "multiplicacion") {
-//         let Valor3 = Valor1 * Valor2;
-//         console.log ("La multiplicación de los dos números es de = " + Valor3);
-//         alert ("La multiplicación de los dos números es de = " + Valor3);
-//     }
-    
-//     else {
-//         console.log("Refresque la página y vuelva a intentarlo")
-//         alert ("Refresque la página y vuelva a intentarlo")
-//     }
-    
-    
-
-// }    
