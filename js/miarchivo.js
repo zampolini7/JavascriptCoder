@@ -94,8 +94,20 @@ listadosDeProductos1 = listadosDeProductos1.sort((a,b)=>a.precio-b.precio);
 console.log(listadosDeProductos1)
 
 
+
 // FUNCIÓN PARA SUMAR Y RESTAR COSAS DEL ARRAY
 
+crearElementoById.appendChild(parrafo);
+
+// alert ("Bievenidos a la calculadora ágil y sencilla");
+// let Valor1 = parseInt(prompt("Ingrese un número"));
+// let Valor2 = parseInt(prompt("Ingrese un segundo número"));
+// let Operacion = prompt ("Ingrese la operacion deseada: suma, resta, multiplicación o división");
+
+// FUNCIÓN PARA SUMAR Y RESTAR COSAS DEL ARRAY
+
+//Me puede servir este if para operar sobre el array, lo veremos más adelante
+// function operaciones (){
 
 // alert ("Bievenidos a la calculadora ágil y sencilla");
 // let Valor1 = parseInt(prompt("Ingrese un número"));
