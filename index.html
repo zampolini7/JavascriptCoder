@@ -59,7 +59,7 @@
               <a class="nav-link" href="#quees">¿Qué es una giftbox?</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#productos">Productos</a>
+              <a class="nav-link" href="#productosContainer">Productos</a>
             </li>
   
             <li class="nav-item">
@@ -69,7 +69,7 @@
             <div class="">
   
               <li class="nav-item d-flex justify-content-end">
-                <a class="nav-link " href="#">CARRITO</a>
+                <a class="nav-link " href="#carrito">CARRITO</a>
               </li>
              
             </div>
@@ -140,109 +140,31 @@
 
 
     <!-- PRIMERAS 3 CARDS: PARRI DEALI WINE -->
-
-    <div id="productos" class="container">
-      <div id="crearId1" class="row"> 
-
-
-      </div>
-       
-       
-    <!-- INICIO TERCERAS 3 CARDS: GIN, TEA TIME, MEMORIES -->
-
-    
-    <!-- <div id="productos" class="container">
-
-      <div class="card-deck">
-        <div class="card">
-          <img class="card-img-top" src="images1/ginbox2.jpeg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">GIN BOX</h5>
-            <p class="card-text">
-              Llega el calorcito y todas las copas piden llenarse!
-            .
-            Les presentamos nuestra GIN BOX:
-            🍾 Gin Príncipe de los Apóstoles
-            🥄 Cuchara de cóctel
-            🥄 Medida para tragos de acero
-            🍹2 copones de Gin
-            🍊5 rodajitas de cítricos disecados
-            .
-            Y a ustedes con que les gusta en GinTonic? 
-              
-
-            </p>
-            <a href="" class="btn btn-primary d-flex justify-content-center">Agregar al carrito</a>
-            
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src="images1/memoriesbox.jpeg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">MEMORIES BOX</h5>
-            <p class="card-text"> 
-             
-            </p>
-            <a href="" class="btn btn-primary d-flex justify-content-center">Agregar al carrito</a>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src="images1/teatimebox.jpeg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">TEA TIME BOX</h5>
-            <p class="card-text"> </p>
-            <a href="" class="btn btn-primary d-flex justify-content-center">Agregar al carrito</a>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!-- FIN TERCERAS 3 CARDS -->
-
-
-    <!-- INICIO ÚLTIMAS 2 CARDS: PROVO Y MOVIENIGTH -->
-    <!-- <div id="productos" class="container">
-
-      <div class="card-deck">
-        <div class="card">
-          <img class="card-img-top" src="images1/provo2.jpeg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">PROVO BOX</h5>
-            <p class="card-text">  
-            </p>
-            <a href="" class="btn btn-primary d-flex justify-content-center">Agregar al carrito</a>
-            
-          </div>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src="images1/movie2.jpeg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">MOVIE NIGTH</h5>
-            <p class="card-text"> 
-             
-            </p>
-            <a href="" class="btn btn-primary d-flex justify-content-center">Agregar al carrito</a>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
+    <div class="container">
+      <h1 id="productosContainer">NUESTROS PRODUCTOS</h1>
+      <div id="productos" class="container">
+        <div id="crearId1" class="row"> 
+  
+  
         </div>
       
-      </div>
-    </div> -->
-    
-
-    <!-- FIN ÚLTIMAS 2 CARDS -->
+    </div>
+       
 
 
     <!-- FIN PRODUCTOS -->
 
 
 
-    <!-- INICIO QUIENES SOMOS -->
+    <!-- INICIO CARRITO -->
 
 
 
-    <!-- FIN QUIENES SOMOS -->
+    <!-- FIN CARRITO -->
+
+    <div id="carrito" class="container">
+      <h1>Tus cajas seleccionadas</h1>
+    </div>
 
 
 
@@ -253,10 +175,10 @@
 
       <div class="row">
 
-        <h1> Contacto </h1>
+        <h1 id="pruebaEvento"> Contacto </h1>
       </div>
 
-      <form>
+      <form id="btnEnviar1">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Nombre y Apellido</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -280,7 +202,7 @@
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Enviarme promociones al mail</label>
         </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button  type="submit" class="btn btn-primary">Enviar</button>
       </form>
 
     </div>
@@ -326,8 +248,7 @@
 
 
 
-
-
+    
 
 
 
@@ -348,7 +269,11 @@
    -->
 
      <!-- Vinculo a mi archivo de js -->
-  <script src="js/miarchivo.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/class.js"></script>
+  <script src="js/function.js"></script>
+  <script src="js/main.js"></script>
+  <!-- <script src="js/miarchivo.js"></script> -->
   <!-- <script src="js/app.js"></script> -->
   </body>
 </html>
