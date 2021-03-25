@@ -34,25 +34,7 @@ crearElementoById.appendChild(cards);
 
 // FIN AGREGAR ELEMENTOS CARD AL DOM
 
-
-// let PrimerElementoAlCarrito = document.getElementById ("2")
-// PrimerElementoAlCarrito.addEventListener("click", prueba)
-// function prueba(){
-//     console.log("Usted ha añadido al carrito su producto");
-//     let PrimerElementoAlCarrito = document.getElementById ("2")
-//     let div = document.createElement("div")
-//     div.innerHTML +=`   <ul class="list-group">
-//                             <li class="list-group-item">
-//                             <h5 > ${listadoDeProductos.id[2]}</h5>
-//                             </li>
-                            
-//                         </ul>
-    
-    
-    
-//     `
-//     PrimerElementoAlCarrito.appendChild()
-// }
+// Agregar productos al carrito y mostrarlo en el html
 
 
 let primerElementoAlCarrito = document.getElementById("2")
@@ -86,11 +68,14 @@ function llamado (e){
         }
     agregarAlcarrito1.appendChild(cardsCarrito);
 
-    // let añadirAlCarrito= document.getElementById ("2")
+ 
 
 }
 
 
+// FIN AGREGAR PRODUCTOS AL CARRITO
+
+// INICIO DE EVENTO PARA SUMAR EL TOTAL DEL CARRITO
 
 let sumarElementos= document.getElementById("2")
 sumarElementos.addEventListener("click", sumarTotal1);
