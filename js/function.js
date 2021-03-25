@@ -44,9 +44,6 @@ listadoDeProductos.push (new productos1(13,'wineBox', 2500, "Vino Cordero con Pi
 
 
 
-
-// FIN FOR & IF
-
 // -- ACTIVIDAD COMPLEMENTARIA DE ORDENAR EL ARRAY, VOY A REALIZARLO DE MENOR A MAYOR BASADO EN LOS PRECIOS //
 
 let listadosDeProductos1 = listadoDeProductos;
@@ -72,17 +69,7 @@ function submiti(e){
     e.preventDefault();
     console.log("formulario enviado");
 }
-//FINPREVENT DEFAULT FORM
-
-
-
-
-
-// let botonAñadirCarro1 = document.getElementById("4")
-// botonAñadirCarro1.addEventListener ("click", clickean)
-// function clickean(){
-//     console.log("formulario enviado");
-// }
+//FIN PREVENT DEFAULT FORM
 
 
 
