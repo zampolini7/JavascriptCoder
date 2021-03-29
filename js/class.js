@@ -1,11 +1,11 @@
 class productos1 {
 
-    constructor(id,nombre, precio, contenido,imagen) {
+    constructor(id,nombre, precio, contenido,img) {
         this.id= id;
-        this.nombre= nombre.toUpperCase();
+        this.nombre= nombre;
         this.precio= parseFloat(precio);
         this.contenido= contenido;
-        this.imagen= imagen;
+        this.img= img;
 
     }
 
