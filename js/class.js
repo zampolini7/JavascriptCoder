@@ -1,11 +1,12 @@
 class productos1 {
 
-    constructor(id,nombre, precio, contenido,img) {
+    constructor(id,nombre, precio, contenido, img, cantidad) {
         this.id= id;
         this.nombre= nombre;
         this.precio= parseFloat(precio);
         this.contenido= contenido;
         this.img= img;
+        this.cantidad= cantidad;
 
     }
 
@@ -16,6 +17,14 @@ class productos1 {
 
 
     }
+
+    descuento(resta){
+        this.precio -= resta;
+    }
+
+    sumarCantidad(){
+        this.cantidad++; 
+      }
 
 }
 

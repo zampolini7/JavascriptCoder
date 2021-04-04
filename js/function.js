@@ -52,9 +52,9 @@ function submiti(e){
 
 // futura función para sumar elementos del carrito
 
-function sumarElementosDelcarrito (item1, item2){
-    for (const elementoASumar of CarritoDeproductos) {
+// function sumarElementosDelcarrito (item1, item2){
+//     for (const elementoASumar of CarritoDeproductos) {
 
         
-    }
-}
+//     }
+// }
