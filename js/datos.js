@@ -1,4 +1,4 @@
-[{
+let datos1 = [{
     "id": 1,
     "nombre": "Sambuca - Ramazzotti",
     "precio": 642,
@@ -299,3 +299,5 @@
     "Contenido": "In congue. Etiam justo. Etiam pretium iaculis justo.",
     "img": "http://dummyimage.com/108x100.png/5fa2dd/ffffff"
   }]
+
+  console.log(datos1);

@@ -24,7 +24,10 @@ class productos1 {
 
     sumarCantidad(){
         this.cantidad++; 
-      }
+    }
+
+    
+
 
 }
 

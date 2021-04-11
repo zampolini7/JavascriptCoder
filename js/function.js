@@ -1,21 +1,36 @@
 
 let listadosDeProductos1 = DATOS;
 
-listadosDeProductos1.push(new productos1(12, "NewBox", 3600, "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.", "file:///C:/Users/nicoz/Desktop/PANDA2/images1/movie2.jpeg"))
+listadosDeProductos1.push(new productos1(12, "NewBox", 3600, "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.", "file:///C:/Users/nicoz/Desktop/PANDA2/images1/movie2.jpeg", 1))
+
+// for (const i of DATOS) {
+//     listadosDeProductos1.push(new productos1(i))
+    
+// }
+
+// console.log(listadosDeProductos1)
+
+
 
 // Guardar en JSON LOS PRODUCTOS
 
-const GuardarEnJson = JSON.stringify(listadosDeProductos1);
+// const guardarLocal = (clave, valor) => {localStorage.setItem(clave, valor)}
+
+// // const GuardarEnJson = 
+
+// guardarLocal("listadodeproductos", JSON.stringify(listadosDeProductos1));
+
+// console.log (guardarLocal)
 
 // OBTENER ARRAY ALMACENADO
 
-const almacenados = JSON.parse(GuardarEnJson)
+// const almacenados = JSON.parse(GuardarEnJson)
 
-for (const almacenado of almacenados) {
-    listadosDeProductos1.push(new productos1(almacenado))
-}
+// for (const almacenado of almacenados) {
+//     listadosDeProductos1.push(new productos1(almacenado))
+// }
 
-listadosDeProductos1= almacenados;
+// listadosDeProductos1= almacenados;
 
 /* -- ACTIVIDAD COMPLEMENTARIA DE ORDENAR EL ARRAY, VOY A AGREGAR UN NUEVO OBJETO CON EL CONSTRUCTOR PARA
 DESPUÉS ORDENARLO DE MENOR A MAYOR BASADO EN LOS PRECIOS */

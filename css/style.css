@@ -65,5 +65,9 @@
 .body .carrito-div .carrito-row .carrito-div-img {
   max-width: 7%;
 }
+.body .carrito .carrito-cont .carrito-row1 .btnCaracteristica {
+  height: 60%;
+  align-self: center;
+}
 
 /*# sourceMappingURL=style.css.map */

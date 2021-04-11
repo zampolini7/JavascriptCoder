@@ -45,77 +45,88 @@ window.addEventListener ('load', function(){
 
     
 });
-// $(window).load(function () {
-//     $('#crearId2').html(`<div class="alert alert-warning" role="alert">
-//                             ¡Todos los productos ya fueron cargados!
-//                         </div>`);
-
-//     console.log ("¡Todos los productos ya fueron cargados!");
-// });
 
 
 
 // EMPEZAMOS A TRABAJAR CON LOS EVENTOS
 
 function asociarEventos(){
-    let botones = document.getElementsByClassName("btnComprar")
-    for (const boton of botones) {
-    boton.onclick = SeleccionarProductos1;
+    $(".btnComprar").click(function (e) {
+        let encontrado = listadosDeProductos1.find(elemento => elemento.id == e.target.id);
+        nuevoProducto = new productos1(encontrado)
+        console.log(typeof nuevoProducto);
+        agregarAlcarrito1.push(nuevoproducto);
+        console.log (agregarAlcarrito1);
 
-}
-
-function SeleccionarProductos1 (e) {
-    console.log(e.target);
-    console.log(e.target.id);
-
-    let productoSeleccionadoXFind = listadosDeProductos1.find (elemento => elemento.id == e.target.id)
-    // nuevoProductoEnCarrito= new productos1(productoSeleccionadoXFind)
-    // nuevoProductoEnCarrito.sumariva()
-    // console.log(nuevoProductoEnCarrito)
-    // productoSeleccionadoXFind.descuento(200);
-    agregarAlcarrito1.push(productoSeleccionadoXFind)
-    // agregarAlcarrito1.push(nuevoProductoEnCarrito)
-    console.log(agregarAlcarrito1);
-
-
-    // if (productoSeleccionadoXFind === undefined){
-    //     let listadosDeProductos1   = listadosDeProductos1.find( elemento => elemento.id == e.target.id );
-    //     // let nuevoProducto = new Producto(productoSeleccionado);
-    //     agregarAlcarrito1.push(productoSeleccionadoXFind);
-    //   }else{
-    //     console.log(listadosDeProductos1)
-    //   }
-
-    //   console.warn(agregarAlcarrito1);
-    // //   agregarCarrito(agregarAlcarrito1 );
-
-    agregarProductoAlCarrito(agregarAlcarrito1);
-}
-// console.log(agregarAlcarrito1)
-
-
-}
-
-
-function agregarProductoAlCarrito(listado){
-    let padre = document.getElementById("carrito")
-    let html = "";
-    for (const producto of listado) {
-        html += `   <div class="container">
-                        <div class="row">
-                            <img class="col-3" src="${producto.img}" alt="imagen de producto">
-                            <h5 class="col-4"> ${producto.nombre} </h5>
-                            
-                            <button ${producto.id} type="button" class="btn btn-lg text-white bg-dark col-2" disabled>${producto.precio}</button>
-                            </div>
-                    </div>
-                 `
+        $("#carrito").empty();
         
-    }
-    padre.innerHTML= html;
+        agregarProductoAlCarritoFunc();
+
+        $("#carrito").hide()
+                        .delay(600)
+                            .fadeIn(2000);
+
+        
+                  
+    });
+     $("#btnDelete").click(function (e) { 
+        let filtroParaBorrar = agregarAlcarrito1.filter (elemento => elemento.id =! id)
+        agregarAlcarrito1.push(filtroParaBorrar)
+        console.log(filtroParaBorrar);
+
+        
+        
+    });
+
 
 }
 
+
+
+
+
+
+function agregarProductoAlCarritoFunc(){
+    let total = 0;
+    for (const producto of agregarAlcarrito1) {
+        total = total + producto.precio
+        
+        $("#carrito").append(`  <div class="container  carrito-cont">
+                                    <div class="row m-3 carrito-row1">
+                                                <img class="col-2" src="${producto.img}" alt="imagen de producto">
+                                                <h5 class="col-5 d-flex justify-content-center align-items-center"> ${producto.nombre} </h5>
+                                                <button ${producto.id} type="button" class=" btn btn-secondary d-flex justify-content-center align-items-center btnCaracteristica">-</button>
+                                                <h5 class="m-3 d-flex justify-content-center align-items-center" > ${producto.cantidad} </h5>
+
+                                                <button  ${producto.id} type="button" class="btn btn-secondary d-flex justify-content-center align-items-center btnCaracteristica">+</button>
+                                                
+                                                <h5 class="col-1 d-flex justify-content-center align-items-center" > ${producto.precio} </h5>
+                                                <button ${producto.id} type="button" class="btn btn-danger d-flex justify-content-center align-items-center btnDelete btnCaracteristica">X</button>
+                                    </div>
+                                </div>
+                            `
+
+        
+                          
+    );}
+   
+    $("#total").html(` <h2 class="d-flex justify-content-end">El precio total es: ${total} </h2>` );           
+    $("#comprarAhora").animate({
+        height: "100px",
+        width: "100px",
+        opacity: "0.25",
+        opacity: "0,50",
+        opacity: "0,75",
+        opacity: "1"},
+        "slow",
+        function(){
+            console.log("final de la transición");
+        } 
+    
+                
+    
+    )    
+}
 
 
 
