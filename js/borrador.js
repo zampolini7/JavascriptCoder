@@ -288,3 +288,10 @@ function agregarProductoAlCarritoFunc(listado){
 
 }
 
+
+
+// post
+$.post("url", "lo que quiero enviar", function(data, estado){
+    console.log(data);
+    $("#Dondequieroagregar").append (`Hola usuario ${data.id}`)
+})

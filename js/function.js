@@ -1,7 +1,7 @@
 
-let listadosDeProductos1 = DATOS;
+// let listadosDeProductos1 = DATOS;
 
-listadosDeProductos1.push(new productos1(12, "NewBox", 3600, "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.", "file:///C:/Users/nicoz/Desktop/PANDA2/images1/movie2.jpeg", 1))
+// listadosDeProductos1.push(new productos1(12, "NewBox", 3600, "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.", "file:///C:/Users/nicoz/Desktop/PANDA2/images1/movie2.jpeg", 1))
 
 // for (const i of DATOS) {
 //     listadosDeProductos1.push(new productos1(i))
@@ -35,8 +35,7 @@ listadosDeProductos1.push(new productos1(12, "NewBox", 3600, "Nullam sit amet tu
 /* -- ACTIVIDAD COMPLEMENTARIA DE ORDENAR EL ARRAY, VOY A AGREGAR UN NUEVO OBJETO CON EL CONSTRUCTOR PARA
 DESPUÉS ORDENARLO DE MENOR A MAYOR BASADO EN LOS PRECIOS */
 
-listadosDeProductos1 = listadosDeProductos1.sort((a,b)=>a.precio-b.precio); 
-console.log(listadosDeProductos1)
+
 
 
 

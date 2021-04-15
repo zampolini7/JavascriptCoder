@@ -1,8 +1,30 @@
 // PASO 1 GENERO Y AGREGO ELEMENTOS AL DOM CON JQUERY
 
-for (const elemento of listadosDeProductos1) {
-    crearElementoCJquery(elemento)
-}
+
+
+$.getJSON("data/data.json", function (datos, estado) {
+    if (estado === "success"){
+        
+        let misDatos= datos;
+
+        console.log(datos);
+        console.log(estado);
+        for (const elemento of misDatos) {
+            crearElementoCJquery(elemento)
+            
+           
+        }
+        
+    }
+        
+    }
+);
+
+
+
+
+// listadosDeProductos1 = listadosDeProductos1.sort((a,b)=>a.precio-b.precio); 
+// console.log(listadosDeProductos1)
 
 function crearElementoCJquery (elemento){
     $('#crearId1').append(`    
@@ -53,9 +75,10 @@ window.addEventListener ('load', function(){
 function asociarEventos(){
     $(".btnComprar").click(function (e) {
         let encontrado = listadosDeProductos1.find(elemento => elemento.id == e.target.id);
-        nuevoProducto = new productos1(encontrado)
-        console.log(typeof nuevoProducto);
-        agregarAlcarrito1.push(nuevoproducto);
+        console.log(encontrado);
+        // nuevoProducto = new productos1(encontrado)
+        // console.log(typeof nuevoProducto);
+        agregarAlcarrito1.push(encontrado);
         console.log (agregarAlcarrito1);
 
         $("#carrito").empty();
@@ -69,14 +92,14 @@ function asociarEventos(){
         
                   
     });
-     $("#btnDelete").click(function (e) { 
-        let filtroParaBorrar = agregarAlcarrito1.filter (elemento => elemento.id =! id)
-        agregarAlcarrito1.push(filtroParaBorrar)
-        console.log(filtroParaBorrar);
+    //  $("#btnDelete").click(function (e) { 
+    //     let filtroParaBorrar = agregarAlcarrito1.filter (elemento => elemento.id =! id)
+    //     agregarAlcarrito1.push(filtroParaBorrar)
+    //     console.log(filtroParaBorrar);
 
         
         
-    });
+    // });
 
 
 }
@@ -130,5 +153,5 @@ function agregarProductoAlCarritoFunc(){
 
 
 
-asociarEventos()
+asociarEventos();
 
