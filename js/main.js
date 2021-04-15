@@ -1,3 +1,4 @@
+let misDatos;
 // PASO 1 GENERO Y AGREGO ELEMENTOS AL DOM CON JQUERY
 
 
@@ -5,7 +6,7 @@
 $.getJSON("data/data.json", function (datos, estado) {
     if (estado === "success"){
         
-        let misDatos= datos;
+        misDatos= datos;
 
         console.log(datos);
         console.log(estado);
@@ -20,7 +21,7 @@ $.getJSON("data/data.json", function (datos, estado) {
     }
 );
 
-
+let listadosDeProductos1 = misDatos;
 
 
 // listadosDeProductos1 = listadosDeProductos1.sort((a,b)=>a.precio-b.precio); 
