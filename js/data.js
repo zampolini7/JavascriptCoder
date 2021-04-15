@@ -1,7 +1,7 @@
 // CREACIÓN DE ARRAYS
 
-const listadoDeProductos = [];
-const agregarAlcarrito1 = [];
+let listadosDeProductos1 = [];
+let agregarAlcarrito1 = [];
 
 
 // MIS OBJETOS LITERALES
