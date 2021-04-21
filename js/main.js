@@ -6,12 +6,7 @@ let misDatos;
 $.getJSON("data/data.json", function (datos, estado) {
     if (estado === "success"){
         
-<<<<<<< HEAD
         misDatos= datos;
-=======
-        let misDatos= datos;
-        listadosDeProductos1 = datos;
->>>>>>> ramaMati
 
         console.log(datos);
         console.log(estado);
@@ -26,11 +21,8 @@ $.getJSON("data/data.json", function (datos, estado) {
     }
 );
 
-<<<<<<< HEAD
 let listadosDeProductos1 = misDatos;
 
-=======
->>>>>>> ramaMati
 
 // listadosDeProductos1 = listadosDeProductos1.sort((a,b)=>a.precio-b.precio); 
 // console.log(listadosDeProductos1)

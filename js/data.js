@@ -1,11 +1,6 @@
 // CREACIÓN DE ARRAYS
-<<<<<<< HEAD
-let misDatos;
-let listadoDeProductos1 = [];
-=======
 
 let listadosDeProductos1 = [];
->>>>>>> ramaMati
 let agregarAlcarrito1 = [];
 
 
