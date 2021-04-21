@@ -131,3 +131,40 @@ function SeleccionarProductos1 (e) {
 
 crearElemento()
 asociarEventos()
+
+
+// EMPEZAMOS A TRABAJAR CON LOS EVENTOS
+
+// function asociarEventos(){
+//     $(".btnComprar").click(function (e) {
+//         console.log("boton clickeado")
+//         let encontrado = listadosDeProductos1.find(elemento => elemento.id == e.target.id);
+//         nuevoProducto = new productos1(encontrado)
+//         console.log('producto', nuevoProducto)
+//         // console.log(typeof nuevoProducto);
+//         agregarAlcarrito1.push(nuevoProducto);
+//         console.log (agregarAlcarrito1);
+
+//         $("#carrito").empty();
+        
+//         agregarProductoAlCarritoFunc();
+
+//         $("#carrito").hide()
+//                         .delay(600)
+//                             .fadeIn(2000);
+
+        
+                  
+//     });
+//     //  $("#btnDelete").click(function (e) { 
+//     //     let filtroParaBorrar = agregarAlcarrito1.filter (elemento => elemento.id =! id)
+//     //     agregarAlcarrito1.push(filtroParaBorrar)
+//     //     console.log(filtroParaBorrar);
+
+        
+        
+//     // });
+
+
+// }
+

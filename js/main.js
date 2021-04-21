@@ -1,4 +1,4 @@
-let misDatos;
+// let misDatos;
 // PASO 1 GENERO Y AGREGO ELEMENTOS AL DOM CON JQUERY
 
 
@@ -6,11 +6,11 @@ let misDatos;
 $.getJSON("data/data.json", function (datos, estado) {
     if (estado === "success"){
         
-        misDatos= datos;
+        listadosDeProductos1= datos;
 
         console.log(datos);
         console.log(estado);
-        for (const elemento of misDatos) {
+        for (const elemento of listadosDeProductos1) {
             crearElementoCJquery(elemento)
             
            
@@ -21,7 +21,7 @@ $.getJSON("data/data.json", function (datos, estado) {
     }
 );
 
-let listadosDeProductos1 = misDatos;
+// listadosDeProductos1 = misDatos;
 
 
 // listadosDeProductos1 = listadosDeProductos1.sort((a,b)=>a.precio-b.precio); 
@@ -89,41 +89,6 @@ window.addEventListener ('load', function(){
 
 
 
-// EMPEZAMOS A TRABAJAR CON LOS EVENTOS
-
-function asociarEventos(){
-    $(".btnComprar").click(function (e) {
-        console.log("boton clickeado")
-        let encontrado = listadosDeProductos1.find(elemento => elemento.id == e.target.id);
-        nuevoProducto = new productos1(encontrado)
-        console.log('producto', nuevoProducto)
-        // console.log(typeof nuevoProducto);
-        agregarAlcarrito1.push(nuevoProducto);
-        console.log (agregarAlcarrito1);
-
-        $("#carrito").empty();
-        
-        agregarProductoAlCarritoFunc();
-
-        $("#carrito").hide()
-                        .delay(600)
-                            .fadeIn(2000);
-
-        
-                  
-    });
-    //  $("#btnDelete").click(function (e) { 
-    //     let filtroParaBorrar = agregarAlcarrito1.filter (elemento => elemento.id =! id)
-    //     agregarAlcarrito1.push(filtroParaBorrar)
-    //     console.log(filtroParaBorrar);
-
-        
-        
-    // });
-
-
-}
-
 
 
 
@@ -188,5 +153,5 @@ function agregarProductoAlCarritoFunc(){
 
 
 
-asociarEventos();
+// asociarEventos();
 
