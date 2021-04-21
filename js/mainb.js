@@ -28,7 +28,6 @@ function crearElemento(){
             
     crearElementoById.appendChild(cards);
     }
-
 }
 
 
