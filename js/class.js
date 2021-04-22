@@ -25,6 +25,10 @@ class productos1 {
         this.cantidad++; 
     }
 
+    restarCantidad(){
+        this.cantidad--;
+    }
+
 
 }
 

@@ -1,5 +1,5 @@
 // let misDatos;
-// PASO 1 GENERO Y AGREGO ELEMENTOS AL DOM CON JQUERY
+// PASO 1 GENERO Y AGREGO ELEMENTOS AL DOM CON JQUERY CON METODO AJAX
 
 
 
@@ -46,11 +46,20 @@ function crearElementoCJquery (elemento){
     );
     producto.on('click', function(e){
         console.log("Hola me clickeaste")
-        let encontrado = listadosDeProductos1.find(elemento => elemento.id == e.target.id);
-        console.log(encontrado);
-        nuevoProducto = new productos1(encontrado)
+        let encontrado = agregarAlcarrito1.find(elemento => elemento.id == e.target.id);   
+        if (encontrado != undefined) {
+            
+            nuevoProducto.sumarCantidad()
+        } else {
+            let encontrado = listadosDeProductos1.find(elemento => elemento.id == e.target.id);
+            nuevoProducto = new productos1(encontrado)
+            agregarAlcarrito1.push(nuevoProducto)
+        }
+        console.log(nuevoProducto);
+       
         // console.log(typeof nuevoProducto);
-        agregarAlcarrito1.push(nuevoProducto);
+        
+        // agregarAlcarrito1.push(nuevoProducto);
         console.log (agregarAlcarrito1);
 
         $("#carrito").empty();
@@ -97,7 +106,7 @@ window.addEventListener ('load', function(){
 function agregarProductoAlCarritoFunc(){
     let total = 0;
     for (const producto of agregarAlcarrito1) {
-        total = total + producto.precio
+        total = total + producto.precio* producto.cantidad
 
         const elementoProducto = $(`
             <div class="container  carrito-cont">
@@ -112,7 +121,9 @@ function agregarProductoAlCarritoFunc(){
                     <h5 class="col-1 d-flex justify-content-center align-items-center" > ${producto.precio * producto.cantidad} </h5>
                     <button id="${producto.id}" type="button" class="btn btn-danger d-flex justify-content-center align-items-center btnDelete btnCaracteristica btnEliminar">X</button>
                 </div>
+            
             </div>
+
         `);
 
         const botonRestar = elementoProducto.children().eq(0).children('.btnRestar');
@@ -120,17 +131,61 @@ function agregarProductoAlCarritoFunc(){
         const botonEliminar= elementoProducto.children().eq(0).children('.btnEliminar');
 
         /**
-         * TODO (Para el caso del boton de sumar):
+         * TO DO (Para el caso del boton de sumar):
          * 1) Cuando el usuario presione el boton de sumar, buscar con el id el objeto dentro del array del carrito.
          * 2) Una vez que tenga el objeto, tengo que agregarle 1 a la cantidad utilizando el metodo sumarCantidad de la clase.
          * 3) Vaciar el div del carrito (#carrito) con el .empty() y volver a ejecutar la funcion agregarProductoAlCarritoFunc().
          */
         botonSumar.on("click", (e) => {
             console.log("Clickea3")
+            let nuevoProducto = agregarAlcarrito1.find(elemento => elemento.id == e.target.id);
+
+            
+            nuevoProducto.sumarCantidad();
+            
+            console.log(nuevoProducto)
+           
+            $("#carrito").empty();
+        
+            agregarProductoAlCarritoFunc();
+
+            
+        })
+
+        botonRestar.on("click", (e) => {
+            console.log("Clickea4")
+            let nuevoProducto = agregarAlcarrito1.find(elemento => elemento.id == e.target.id);
+
+            
+            nuevoProducto.restarCantidad();
+            
+            console.log(nuevoProducto)
+           
+            $("#carrito").empty();
+        
+            agregarProductoAlCarritoFunc();
+
+            
+        })
+
+        botonEliminar.on("click", (e) => {
+            console.log("Clickea3")
+            let nuevoProducto = agregarAlcarrito1.filter(elemento => elemento.id != e.target.id);
+            e.preventDefault();
+            agregarAlcarrito1=nuevoProducto;
+            
+            console.log(nuevoProducto)
+            console.log(agregarAlcarrito1)
+           
+            $("#carrito").empty();
+        
+            agregarProductoAlCarritoFunc();
+
+            
         })
         
         $("#carrito").append(elementoProducto);
-    
+              
     }
    
     $("#total").html(` <h2 class="d-flex justify-content-end">El precio total es: ${total} </h2>` );           
@@ -153,5 +208,4 @@ function agregarProductoAlCarritoFunc(){
 
 
 
-// asociarEventos();
 
