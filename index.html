@@ -130,7 +130,7 @@
     <!-- INICIO PRODUCTOS -->
 
 
-    <!-- PRIMERAS 3 CARDS: PARRI DEALI WINE -->
+    
     <div class="container ">
       <div class="row ">
         <h2 id="productosContainer" class="mr-4 col-6">NUESTROS PRODUCTOS</h2>
@@ -165,11 +165,34 @@
         <img class="col-3 carrito-div-img" src="images1/carrito-de-compras.png" alt="imagen del carrito">
         <h2 id="total" class="col-8"> El total de tu compre es de: </h2>
 
-        <button id="comprarAhora" type="button" class="btn btn-lg text-white bg-dark col-2" >COMPRAR AHORA</button>
+        <button id="comprarAhora" type="button" class="btn btn-lg text-white bg-dark col-2" data-toggle="modal" data-target="#exampleModal" >COMPRAR AHORA</button>
       </div>
     </div>
 
-
+    <!-- PRUEBA MODAL -->
+    <!-- Button trigger modal -->
+          
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">¡Estas a un paso de finalizar tu reserva de compra!</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div id="modalTotal" class="modal-body">
+                  
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-secondary">Comprar ahora</button>
+              </div>
+              </div>
+          </div>
+          </div>
+          
 
 
     <!-- FIN CARRITO -->
@@ -186,8 +209,8 @@
 
       <form id="btnEnviar1">
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Nombre y Apellido</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <label for="nombreApellido" class="form-label">Nombre y Apellido</label>
+          <input type="text" class="form-control" id="nombreApellido" aria-describedby="emailHelp">
           <div id="emailHelp" class="form-text">Tu información está segura con nosotros :)</div>
         </div>
         <div class="mb-3">
@@ -195,6 +218,28 @@
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
          
         </div>
+        <div class="form-group">
+          <label for="selectProvincias">Provincia</label>
+          <select class="form-control" id="selectProvincias">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="selectMunicipio">Municipio</label>
+          <select class="form-control" id="selectMunicipio">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+
 
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Para una mejor atención, ¿Nos pasas tu whatssap?</label>
@@ -208,7 +253,7 @@
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Enviarme promociones al mail</label>
         </div>
-        <button  type="submit" class="btn btn-primary mb-4">Enviar</button>
+        <button  type="submit" class="btn btn-primary mb-4" id="#enviarFormulario">Enviar</button>
       </form>
 
     </div>

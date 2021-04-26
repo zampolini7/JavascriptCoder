@@ -44,20 +44,20 @@ DESPUÉS ORDENARLO DE MENOR A MAYOR BASADO EN LOS PRECIOS */
 
 //INICIO DE CREACIÓN DE EVENTOS
 
-let mouse = document.getElementById ("pruebaEvento");
-mouse.onclick = () => (console.log("Esto También funciona"));
-mouse.onmousemove = () => (console.log("Esto se esta pasando"));
+// let mouse = document.getElementById ("pruebaEvento");
+// mouse.onclick = () => (console.log("Esto También funciona"));
+// mouse.onmousemove = () => (console.log("Esto se esta pasando"));
 
 
 
-//INICIO PREVENT DEFAULT FORM
-let botonEnviar = document.getElementById("btnEnviar1")
-botonEnviar.addEventListener ("submit", submiti)
+// //INICIO PREVENT DEFAULT FORM
+// let botonEnviar = document.getElementById("btnEnviar1")
+// botonEnviar.addEventListener ("submit", submiti)
 
-function submiti(e){
-    e.preventDefault();
-    console.log("formulario enviado");
-}
+// function submiti(e){
+//     e.preventDefault();
+//     console.log("formulario enviado");
+// }
 //FIN PREVENT DEFAULT FORM
 
 

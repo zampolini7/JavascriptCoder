@@ -295,3 +295,123 @@ $.post("url", "lo que quiero enviar", function(data, estado){
     console.log(data);
     $("#Dondequieroagregar").append (`Hola usuario ${data.id}`)
 })
+
+
+
+
+
+function finalizarCompra (e){
+    for (const elemento of agregarAlcarrito1) {
+        (elemento)
+        
+       
+    }
+    const modal = $(`<!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        
+        
+        `)
+
+        modal.on('click', function(e){
+}
+
+
+
+
+
+$('#comprarAhora').click(function (e) { 
+        
+    let total = 0;
+    let Totalproducto= "";
+    for (const producto of agregarAlcarrito1) {
+        total = total + producto.precio* producto.cantidad
+        return Totalproducto = $(`
+        <div class="container  carrito-cont">
+            <div class="row m-3 carrito-row1">
+                <img class="col-2" src="${producto.img}" alt="imagen de producto">
+                <h5  class="col-5 d-flex justify-content-center align-items-center"> ${producto.nombre} </h5>
+                <button id="${producto.id}" type="button" class=" btn btn-secondary d-flex justify-content-center align-items-center btnCaracteristica btnRestar">-</button>
+                <h5 class="m-3 d-flex justify-content-center align-items-center" > ${producto.cantidad} </h5>
+
+                <button id="${producto.id}" type="button" class="btn btn-secondary d-flex justify-content-center align-items-center btnCaracteristica btnSumar">+</button>
+                
+                <h5 class="col-1 d-flex justify-content-center align-items-center" > ${producto.precio * producto.cantidad} </h5>
+                <button id="${producto.id}" type="button" class="btn btn-danger d-flex justify-content-center align-items-center btnDelete btnCaracteristica btnEliminar">X</button>
+            </div>
+        
+        </div>
+
+        `);
+    }   
+    $("#modalTotal").append(Totalproducto);
+    e.preventDefault();
+    console.log("Usted clickeo el modal");
+
+
+
+
+
+    $('#comprarAhora').click(function (e) { 
+        e.preventDefault();
+        const Totalproducto = $(`
+        <div class="container  carrito-cont">
+            <div class="row m-3 carrito-row1">
+                <img class="col-2" src="${producto.img}" alt="imagen de producto">
+                <h5  class="col-5 d-flex justify-content-center align-items-center"> ${producto.nombre} </h5>
+                <button id="${producto.id}" type="button" class=" btn btn-secondary d-flex justify-content-center align-items-center btnCaracteristica btnRestar">-</button>
+                <h5 class="m-3 d-flex justify-content-center align-items-center" > ${producto.cantidad} </h5>
+
+                <button id="${producto.id}" type="button" class="btn btn-secondary d-flex justify-content-center align-items-center btnCaracteristica btnSumar">+</button>
+                
+                <h5 class="col-1 d-flex justify-content-center align-items-center" > ${producto.precio * producto.cantidad} </h5>
+                <button id="${producto.id}" type="button" class="btn btn-danger d-flex justify-content-center align-items-center btnDelete btnCaracteristica btnEliminar">X</button>
+            </div>
+        
+        </div>
+
+    `);
+
+    $("#modalTotal").append(Totalproducto);
+    
+    console.log("Usted clickeo el modal");
+    let total = 0;
+    for (const producto of agregarAlcarrito1) {
+    total = total + producto.precio* producto.cantidad
+
+   
+
+    }
+
+
+
+    
+});
+
+// listadosDeProductos1 = misDatos;
+
+
+// listadosDeProductos1 = listadosDeProductos1.sort((a,b)=>a.precio-b.precio); 
+// console.log(listadosDeProductos1)

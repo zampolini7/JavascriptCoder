@@ -1,6 +1,4 @@
-// let misDatos;
-// PASO 1 GENERO Y AGREGO ELEMENTOS AL DOM CON JQUERY CON METODO AJAX
-
+// INICIO: TRAIGO DATA DE LOS ELEMENTOS AL DOM CON JQUERY CON METODO AJAX
 
 
 $.getJSON("data/data.json", function (datos, estado) {
@@ -15,17 +13,32 @@ $.getJSON("data/data.json", function (datos, estado) {
             
            
         }
-        
+        // cargaDeProductosDelStorage()
     }
         
     }
 );
 
-// listadosDeProductos1 = misDatos;
+// FIN : TRAIGO DATA DE LOS ELEMENTOS AL DOM CON JQUERY CON METODO AJAX
 
 
-// listadosDeProductos1 = listadosDeProductos1.sort((a,b)=>a.precio-b.precio); 
-// console.log(listadosDeProductos1)
+function cargaDeProductosDelStorage() {
+    const almacenados= JSON.parse(localStorage.getItem("productosDelCarrito"))
+    console.log(almacenados)
+
+
+            for (const producto of almacenados) {
+                agregarAlcarrito1.push (new productos1(producto))
+                console.log(agregarAlcarrito1)
+                
+            }
+            agregarProductoAlCarritoFunc(agregarAlcarrito1)
+
+
+}
+
+
+// INICIO: Genero los elementos y escucho eventos para agregar al carrito
 
 function crearElementoCJquery (elemento){
     const producto = $(`
@@ -44,6 +57,8 @@ function crearElementoCJquery (elemento){
 
         </div>`
     );
+    // agregarProductoAlCarritoFunc();
+    
     producto.on('click', function(e){
         console.log("Hola me clickeaste")
         let encontrado = agregarAlcarrito1.find(elemento => elemento.id == e.target.id);   
@@ -54,6 +69,7 @@ function crearElementoCJquery (elemento){
             let encontrado = listadosDeProductos1.find(elemento => elemento.id == e.target.id);
             nuevoProducto = new productos1(encontrado)
             agregarAlcarrito1.push(nuevoProducto)
+            
         }
         console.log(nuevoProducto);
        
@@ -65,18 +81,22 @@ function crearElementoCJquery (elemento){
         $("#carrito").empty();
         
         agregarProductoAlCarritoFunc();
-
+        
         $("#carrito").hide()
                         .delay(600)
                             .fadeIn(2000);
     })
     $('#crearId1').append(producto)
+
+
 }
 
 
-// FIN AGREGAR ELEMENTOS CARD AL DOM
 
-// INICIO Y FIN DE LA FUNCIÓN READY
+
+// FIN: Genero los elementos y escucho eventos para agregar al carrito
+
+// INICIO FUNCIÓN READY Y LOAD
 
 $(document).ready(function(){
    $('#crearId2').append(`<div class="spinner-border" role="status">
@@ -96,16 +116,18 @@ window.addEventListener ('load', function(){
     
 });
 
+// FIN FUNCIÓN READY Y LOAD
 
 
 
 
-
-
+//  INICIO: función para agregar al carrito, sumar cantidades, restar y eliminar
 
 function agregarProductoAlCarritoFunc(){
     let total = 0;
     for (const producto of agregarAlcarrito1) {
+
+
         total = total + producto.precio* producto.cantidad
 
         const elementoProducto = $(`
@@ -118,7 +140,7 @@ function agregarProductoAlCarritoFunc(){
 
                     <button id="${producto.id}" type="button" class="btn btn-secondary d-flex justify-content-center align-items-center btnCaracteristica btnSumar">+</button>
                     
-                    <h5 class="col-1 d-flex justify-content-center align-items-center" > ${producto.precio * producto.cantidad} </h5>
+                    <h3 class="col-1 d-flex justify-content-center align-items-center" > ${producto.precio * producto.cantidad} </h3>
                     <button id="${producto.id}" type="button" class="btn btn-danger d-flex justify-content-center align-items-center btnDelete btnCaracteristica btnEliminar">X</button>
                 </div>
             
@@ -130,12 +152,7 @@ function agregarProductoAlCarritoFunc(){
         const botonSumar= elementoProducto.children().eq(0).children('.btnSumar');
         const botonEliminar= elementoProducto.children().eq(0).children('.btnEliminar');
 
-        /**
-         * TO DO (Para el caso del boton de sumar):
-         * 1) Cuando el usuario presione el boton de sumar, buscar con el id el objeto dentro del array del carrito.
-         * 2) Una vez que tenga el objeto, tengo que agregarle 1 a la cantidad utilizando el metodo sumarCantidad de la clase.
-         * 3) Vaciar el div del carrito (#carrito) con el .empty() y volver a ejecutar la funcion agregarProductoAlCarritoFunc().
-         */
+    
         botonSumar.on("click", (e) => {
             console.log("Clickea3")
             let nuevoProducto = agregarAlcarrito1.find(elemento => elemento.id == e.target.id);
@@ -187,6 +204,9 @@ function agregarProductoAlCarritoFunc(){
         $("#carrito").append(elementoProducto);
               
     }
+
+    guardarEnStorage(agregarAlcarrito1)
+
    
     $("#total").html(` <h2 class="d-flex justify-content-end">El precio total es: ${total} </h2>` );           
     $("#comprarAhora").animate({
@@ -204,8 +224,140 @@ function agregarProductoAlCarritoFunc(){
                 
     
     )    
+    
 }
 
+// INICIO Botón comprar ahora para finalizar compra
+
+$('#comprarAhora').click(function (e) { 
+        
+    let total = 0;
+    let Totalproducto ="";
+    // $(document).ready(function(){
+    //      console.log("La carga del carrito finalizó");
+
+    //  })
+     
+    for (const producto of agregarAlcarrito1) {
+        total = total + producto.precio* producto.cantidad
+        Totalproducto = $(`
+        <div class="container  carrito-cont">
+            <div class="row m-3 carrito-row1">
+                <img class="col-4" src="${producto.img}" alt="imagen de producto">
+                <h5  class="col d-flex justify-content-center align-items-center"> ${producto.nombre} </h5>
+                
+                <h5 class="m-3 d-flex justify-content-center align-items-center" > * ${producto.cantidad } =  </h5>
+
+
+                
+                <h5 class="col d-flex justify-content-center align-items-center" > ${producto.precio * producto.cantidad} </h5>
+                
+            </div>
+        
+        </div>
+
+        `);
+    }
+    $("#modalTotal").empty();
+    $("#modalTotal").append(Totalproducto);
+    
+    $("#modalTotal").append(` <h2 class="d-flex justify-content-end">El precio total es: ${total} </h2>` ); 
+    
+    
 
 
 
+
+    
+});
+
+// FIN Botón comprar ahora para finalizar compra
+
+// INICIO Traigo datos de provincias y municipios desde API del gobierno
+
+const API = "https://apis.datos.gob.ar/georef/api/provincias"
+
+$(document).ready(function () {
+    console.log("El carrito esta listo");
+    $.get(API, function (datos,estado) {
+       
+            console.log(datos.provincias);
+            console.log(estado);
+            $("#selectProvincias").empty();
+            for (const provincia of datos.provincias) {
+                $("#selectProvincias").append(`<option value="${provincia.id}">${provincia.nombre}</option>`);
+                
+            }
+           
+            
+       
+
+        
+    })
+});
+
+$("#selectProvincias").change(function (e) { 
+    console.log($("#selecProvincias"));
+    let ApiMunicipio = `https://apis.datos.gob.ar/georef/api/municipios?provincia=${this.value}&campos=id,nombre&max=100`
+    $.get(ApiMunicipio, function (datos,estado) {
+        console.log(datos.municipios);
+        $("#selectMunicipio").empty();
+        for (const municipio of datos.municipios) {
+            $("#selectMunicipio").append(`<option value="${municipio.id}">${municipio.nombre}</option>`);
+            
+        }
+        
+    })
+});
+
+// FIN Traigo datos de provincias y municipios desde API del gobierno
+
+// INICIO Manejo de datos del formulario
+
+$("#btnEnviar1").submit(function (e) { 
+    e.preventDefault();
+
+    let nombreApellido= $(e.target).children().eq(0).children().eq(1)
+    console.log(nombreApellido);
+    console.log(nombreApellido[0].value);
+
+    let mail= $(e.target).children().eq(1).children().eq(1)
+    console.log(mail);
+    console.log(mail[0].value);
+
+    let provinciaSelec= $(e.target).children().eq(2).children().eq(1)
+    console.log(provinciaSelec);
+    console.log(provinciaSelec[0].value);
+
+    let municioSelec= $(e.target).children().eq(3).children().eq(1)
+    console.log(municioSelec);
+    console.log(municioSelec[0].value);
+
+    let wasap= $(e.target).children().eq(4).children().eq(1)
+    console.log(wasap);
+    console.log(wasap[0].value);
+
+
+
+ 
+});
+//  FIN Manejo de datos del formulario
+
+
+// INICIO Guardo datos del carrito en local storage.
+function guardarEnStorage() {
+
+    const enJson= JSON.stringify(agregarAlcarrito1);
+            console.log(enJson);
+            localStorage.setItem("productosDelCarrito", enJson)
+            
+            
+
+
+  }
+
+//   FIN Guardo datos del carrito en local storage.
+
+
+  
+ 
