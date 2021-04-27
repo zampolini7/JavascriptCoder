@@ -13,7 +13,7 @@ $.getJSON("data/data.json", function (datos, estado) {
             
            
         }
-        // cargaDeProductosDelStorage()
+        cargaDeProductosDelStorage()
     }
         
     }
@@ -60,11 +60,9 @@ function crearElementoCJquery (elemento){
     // agregarProductoAlCarritoFunc();
     
     producto.on('click', function(e){
-        console.log("Hola me clickeaste")
         let encontrado = agregarAlcarrito1.find(elemento => elemento.id == e.target.id);   
-        if (encontrado != undefined) {
-            
-            nuevoProducto.sumarCantidad()
+        if (encontrado) {
+            encontrado.sumarCantidad()
         } else {
             let encontrado = listadosDeProductos1.find(elemento => elemento.id == e.target.id);
             nuevoProducto = new productos1(encontrado)
@@ -230,6 +228,7 @@ function agregarProductoAlCarritoFunc(){
 // INICIO Botón comprar ahora para finalizar compra
 
 $('#comprarAhora').click(function (e) { 
+    $("#modalTotal").empty();
         
     let total = 0;
     let Totalproducto ="";
@@ -257,19 +256,21 @@ $('#comprarAhora').click(function (e) {
         </div>
 
         `);
-    }
-    $("#modalTotal").empty();
-    $("#modalTotal").append(Totalproducto);
+        $("#modalTotal").append(Totalproducto);
+    } 
+    
     
     $("#modalTotal").append(` <h2 class="d-flex justify-content-end">El precio total es: ${total} </h2>` ); 
-    
-    
-
-
-
-
-    
 });
+
+// Boton de comprar ahora en el modal
+$('.buy-now').on("click", () => {
+    
+    const phone = '543512276647'
+    const whatsappApi = `https://api.whatsapp.com/send/?phone=${phone}&text=${text}`
+    // window.location.replace(whatsappApi);
+    window.open(whatsappApi, '_blank')
+})
 
 // FIN Botón comprar ahora para finalizar compra
 
@@ -317,30 +318,62 @@ $("#selectProvincias").change(function (e) {
 $("#btnEnviar1").submit(function (e) { 
     e.preventDefault();
 
-    let nombreApellido= $(e.target).children().eq(0).children().eq(1)
-    console.log(nombreApellido);
-    console.log(nombreApellido[0].value);
+    let nombreCompleto= $(e.target).children().eq(0).children().eq(1)
+    console.log(nombreCompleto);
+    console.log(nombreCompleto[0].value);
 
     let mail= $(e.target).children().eq(1).children().eq(1)
     console.log(mail);
     console.log(mail[0].value);
 
-    let provinciaSelec= $(e.target).children().eq(2).children().eq(1)
-    console.log(provinciaSelec);
-    console.log(provinciaSelec[0].value);
+    let provinciaSelect= $(e.target).children().eq(2).children().eq(1)
+    console.log(provinciaSelect);
+    console.log(provinciaSelect[0].value);
 
-    let municioSelec= $(e.target).children().eq(3).children().eq(1)
-    console.log(municioSelec);
-    console.log(municioSelec[0].value);
+    let municipioSelect= $(e.target).children().eq(3).children().eq(1)
+    console.log(municipioSelect);
+    console.log(municipioSelect[0].value);
 
     let wasap= $(e.target).children().eq(4).children().eq(1)
     console.log(wasap);
     console.log(wasap[0].value);
 
+    const data = {
+        nombreCompleto,
+        mail,
+        provinciaSelect,
+        municipioSelect,
+        wasap
+    }
+
+    fetch(
+        apiUrl, 
+        {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(res => {
+        console.log("todo salio bien", res)
+        alert("Se guardaron los datos correctamente 😃")
+    })
+    .catch(err => {
+        console.log("todo salio mal", err)
+    })
+
+    
+
 
 
  
 });
+
+function callbackApi(respuesta){
+
+    console.log("Respuesta api", respuesta)
+}
 //  FIN Manejo de datos del formulario
 
 
