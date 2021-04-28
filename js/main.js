@@ -71,9 +71,6 @@ function crearElementoCJquery (elemento){
         }
         console.log(nuevoProducto);
        
-        // console.log(typeof nuevoProducto);
-        
-        // agregarAlcarrito1.push(nuevoProducto);
         console.log (agregarAlcarrito1);
 
         $("#carrito").empty();
@@ -232,12 +229,9 @@ $('#comprarAhora').click(function (e) {
         
     let total = 0;
     let Totalproducto ="";
-    // $(document).ready(function(){
-    //      console.log("La carga del carrito finalizó");
-
-    //  })
-     
+  
     for (const producto of agregarAlcarrito1) {
+        text += `${producto.cantidad} ${producto.nombre} ` 
         total = total + producto.precio* producto.cantidad
         Totalproducto = $(`
         <div class="container  carrito-cont">
@@ -266,9 +260,8 @@ $('#comprarAhora').click(function (e) {
 // Boton de comprar ahora en el modal
 $('.buy-now').on("click", () => {
     
-    const phone = '543512276647'
+    const phone = '543516454466'
     const whatsappApi = `https://api.whatsapp.com/send/?phone=${phone}&text=${text}`
-    // window.location.replace(whatsappApi);
     window.open(whatsappApi, '_blank')
 })
 
@@ -321,22 +314,27 @@ $("#btnEnviar1").submit(function (e) {
     let nombreCompleto= $(e.target).children().eq(0).children().eq(1)
     console.log(nombreCompleto);
     console.log(nombreCompleto[0].value);
+    nombreCompleto.val(``)
 
     let mail= $(e.target).children().eq(1).children().eq(1)
     console.log(mail);
     console.log(mail[0].value);
+    mail.val(``)
 
     let provinciaSelect= $(e.target).children().eq(2).children().eq(1)
     console.log(provinciaSelect);
     console.log(provinciaSelect[0].value);
+    provinciaSelect.val(``)
 
     let municipioSelect= $(e.target).children().eq(3).children().eq(1)
     console.log(municipioSelect);
     console.log(municipioSelect[0].value);
+    municipioSelect.val(``)
 
     let wasap= $(e.target).children().eq(4).children().eq(1)
     console.log(wasap);
     console.log(wasap[0].value);
+    wasap.val(``)
 
     const data = {
         nombreCompleto,
@@ -357,15 +355,28 @@ $("#btnEnviar1").submit(function (e) {
     })
     .then(res => {
         console.log("todo salio bien", res)
-        alert("Se guardaron los datos correctamente 😃")
+        // alert("Se guardaron los datos correctamente 😃")
+        
+        
+       
     })
     .catch(err => {
         console.log("todo salio mal", err)
     })
 
+  
+    // $('#btnEnviar1').trigger("reset"); opcional c/ jquery
+    $("#mostrarAlFinal").html(`
+        <p class ="text-success">
+            Todo salió correctamente, tus datos fueron enviados 😃
+        </p>
+    `);
+
+    $(".cambioDeColor").css("border", "2px solid rgb(115, 189, 42)")
+                        
     
 
-
+    
 
  
 });
