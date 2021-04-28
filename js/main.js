@@ -355,7 +355,7 @@ $("#btnEnviar1").submit(function (e) {
     })
     .then(res => {
         console.log("todo salio bien", res)
-        // alert("Se guardaron los datos correctamente 😃")
+       
         
         
        
